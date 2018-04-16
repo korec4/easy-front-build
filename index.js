@@ -1,1 +1,1 @@
-var createDir = require('./lib/index.js');
+const createDirectory = require('./lib/index.js');
