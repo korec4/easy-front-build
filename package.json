@@ -4,7 +4,9 @@
   "description": "This package generate a basic structure of files (html, js && css) by  module name",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index",
+    "create": "node index.js"
   },
   "repository": {
     "type": "git",
