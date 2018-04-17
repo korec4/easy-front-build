@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/jorge151095/easy-front-build/issues"
   },
-  "homepage": "https://github.com/jorge151095/easy-front-build#readme"
+  "homepage": "https://github.com/jorge151095/easy-front-build#readme",
+  "dependencies": {
+    "chalk": "^2.3.2"
+  }
 }
