@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/jorge151095/easy-front-build#readme",
   "dependencies": {
-    "chalk": "^2.3.2"
+    "chalk": "^2.3.2",
+    "yargs": "^11.0.0"
   }
 }
