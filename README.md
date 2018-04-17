@@ -20,7 +20,7 @@ This method generate the js, html and css files inside your module created insid
 
  - Abraham Espinosa
  - Jorge A. Hernandez
- - A. Alejandro Carvantes
+ - A. Alejandro Caravantes
 
 License
 ----
