@@ -1,11 +1,11 @@
-#Easy-Front-Builder
+ # Easy-Front-Builder
 
-#Why?
+ # Why?
 
 This package help us to generate modules (directories) inside creates the js, html and css files, 
 you put your module name, generate and code! 
 
-#Usage
+ # Usage
 
 The case common to  generate a module: (whitout " any <>)
 
