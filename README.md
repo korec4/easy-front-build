@@ -1,26 +1,34 @@
- # Easy-Front-Builder
 
- # Why?
+# Easy-Front-Builder
+
+# Why?
 
 This package help us to generate modules (directories) inside creates the js, html and css files, 
 you put your module name, generate and code! 
 
  # Usage
 
-The case common to  generate a module: (whitout " any <>)
+
+The case common to  generate a module of logic: (whitout " any <>)
 
 ```sh
-$ node index.js <"ModuleName">
+$ node index.js --name=<"FileName"> --logic
 ```
 
-This method generate the js, html and css files inside your module created inside the front_module! (don't forget!)
+To generate a module of ui: (whitout " any <>)
+
+```sh
+$ node index.js --name=<"FileName"> --ui
+```
+
+This will generate the js if you use the flag **--logic**, in the other hand if you use the flag **--ui** will generated the html and css files in the main directory
 
 
 ### Collaboration
 
  - Abraham Espinosa
  - Jorge A. Hernandez
- - A. Alejandro Carvantes
+ - A. Alejandro Caravantes
 
 License
 ----
