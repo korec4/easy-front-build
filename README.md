@@ -59,18 +59,18 @@ So you add the flags --logic --ui you can generate the three file (js, html, css
 will generated a directory, the html and css files in the front_modules directory
 
  # Directory of project:
-
+```tree
 yourProject
 ├── _package.json
 ├── _node_modules
-|   ├── 
-|   └── 
+|   ├── *<any>
+|   └── *<any>
 ├── _front_modules
 |   ├── miModule
         ├── services-iModule.html
         ├── services-miModule.css
         ├── services-miModule.js
- 
+ ```
 
 ### Collaboration
 
