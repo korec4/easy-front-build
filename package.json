@@ -1,6 +1,6 @@
 {
   "name": "easy-front-build",
-  "version": "0.2.1",
+  "version": "0.2.3",
   "description": "This package generate a basic structure of files (html, js && css) by  module name",
   "main": "lib/index.js",
   "bin": {
@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/jorge151095/easy-front-build#readme",
   "dependencies": {
+    "caller-path": "^2.0.0",
     "chalk": "^2.3.2",
     "yargs": "^11.0.0"
   }
