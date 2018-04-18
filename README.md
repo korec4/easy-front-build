@@ -63,8 +63,8 @@ will generated a directory, the html and css files in the front_modules director
 yourProject
 ├── _package.json
 ├── _node_modules
-|   ├── 
-|   └── 
+|   ├── *<any>
+|   └── *<any>
 ├── _front_modules
 |   ├── miModule
         ├── services-iModule.html
