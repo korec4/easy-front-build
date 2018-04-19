@@ -1,0 +1,16 @@
+'use strict';
+
+
+
+const core = require('../lib/<name>.js');
+
+
+const helper = require('./sinonObjects/<name>.sinon.js');
+
+
+
+test('case test', () => {
+    
+	// @TODO case test here !
+
+});
