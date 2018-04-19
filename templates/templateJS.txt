@@ -1,4 +1,6 @@
 'use strict';
 (function <name>(){
-
+    const myFunction = () => {
+        //@todo
+    };
 }());
