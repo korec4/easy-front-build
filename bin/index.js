@@ -6,4 +6,4 @@ const argv = require('yargs').argv;
 
 const core = require('../lib/index');
 
-core.createDirectory(argv);
+core.CreateDirectory(argv);
