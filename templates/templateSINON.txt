@@ -1,5 +1,5 @@
 const sinon = require('sinon');
-const dymmy = {};
+const dummy = {};
 
 const mock = sinon.mock(object);
 //@TODO actions here!
