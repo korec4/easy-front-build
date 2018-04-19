@@ -8,11 +8,11 @@ mock.verify();
 
 mock.restore();
 
-const spy = sinon.spy(object, 'function<name>');
+const spy = sinon.spy(object,  'function<name>');
 //@TOD functions watcher here!
 
 spy.restore();
-const stub = sinon.stub(object, 'function<name>');.callsFake() => {
+const stub = sinon.stub(object,  'function<name>').callsFake(() => {
     //@TODO the overwrite behavior
 });
 
