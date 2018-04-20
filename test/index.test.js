@@ -2,20 +2,19 @@
 const core = require('../lib/index');
 const fs = require('fs');
 const sinon = require('sinon');
-//const helper = require('./sinonObjects/index.sinon.js');
 
 test('writeDirectory', (done) => {
 
-    const stub = sinon.stub(fs, 'mkdir').callsFake(() => {
-        Promise.resolve('peanut butter');
+    const stub = sinon.stub(fs, 'mkdirSync').callsFake(() => {
+        return undefined;
     });
 
-    const promise = core.WriteDirectory('front_modules', 'test');
+    const promise = core.WriteDirectory('front_modules', 'petter');
 
-    return promise
-        .then(serviceObjects => {
-            expect(serviceObjects).toBe(2);
-            done();
-        })
+    expect.assertions(1);
+    return promise.then(data => {
+        expect(data).toBe(false);
+        done();
+    });
 });
 
