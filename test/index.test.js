@@ -12,8 +12,10 @@ test('writeDirectory', (done) => {
 
     const promise = core.WriteDirectory('front_modules', 'test');
 
-
-    return expect(promise).resolves.toBe('peanut butter');
-
+    return promise
+        .then(serviceObjects => {
+            expect(serviceObjects).toBe(2);
+            done();
+        })
 });
 
