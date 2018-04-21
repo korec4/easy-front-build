@@ -35,8 +35,12 @@ test('WriteFile', () => {
     });
 });
 
+test('ReplaceString', () => {
+    expect(core.ReplaceString(dummy.templateHTML, '<name>', 'testFunction')).toBe(dummy.templateHTML);
+});
+
 test('ReadFile', (done) => {
-    const stub = sinon.stub(fs, 'readFile').callsFake(() => {
+    const stub = sinon.stub(fs, 'readFileSync').callsFake(() => {
         return dummy.templateHTML;
     });
 
@@ -45,8 +49,8 @@ test('ReadFile', (done) => {
     expect.assertions(1);
 
     return promise.then(data => {
-        expect(data).toEqual({});
+        expect(data).toEqual(dummy.templateHTML);
         done();
         stub.restore();
-    })
+    });
 });
