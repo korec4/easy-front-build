@@ -7,9 +7,9 @@
     "easy-front-build": "./bin/index.js"
   },
   "scripts": {
-    "test": "jest",
-    "start": "node index",
-    "create": "node index.js"
+    "test": "jest --config=jest.config.js",
+    "coverage": "concurrently \"http-server -a localhost -p 1234\" \"start http://localhost:1234/coverage\" ",
+    "start": "node lib/index.js"
   },
   "repository": {
     "type": "git",
@@ -38,6 +38,8 @@
     "yargs": "^11.0.0"
   },
   "devDependencies": {
+    "concurrently": "^3.5.1",
+    "http-server": "^0.11.1",
     "jest": "^22.4.3",
     "sinon": "^4.5.0"
   }
