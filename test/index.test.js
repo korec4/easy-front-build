@@ -36,13 +36,13 @@ test('WriteFile', () => {
 });
 
 test('ReadFile', (done) => {
-    const stub = sinon.stub(fs, 'readFile').callsFake(() => {
+    const stub = sinon.stub(fs, 'readFileSync').callsFake(() => {
         return dummy.templateHTML;
     });
 
     const promise = core.ReadFile('templateHTML', 'testFile');
 
-    expect.assertions(0);
+    expect.assertions(1);
 
     return promise.then(data => {
         expect(data).toBe(dummy.templateHTML);
