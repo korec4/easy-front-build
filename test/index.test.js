@@ -68,6 +68,12 @@ test('ReadFile', (done) => {
     });
 });
 
+test('PromiseWriteFile', () => {
+    const stub = sinon.stub(chalk, 'green').callsFake(() => {
+
+    });
+});
+
 test('ReadAllFiles', () => {
     const stub = sinon.stub(core, 'ReadFile').callsFake(() => {
         stub.withArgs('templateHTML', name).returns(templateHTML);
