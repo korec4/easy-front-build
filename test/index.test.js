@@ -4,7 +4,7 @@ const fs = require('fs');
 const sinon = require('sinon');
 const dummy = require('./sinonObjects/writeDirectory.dummy');
 
-/*
+
 test('writeDirectory', (done) => {
     const stub = sinon.stub(fs, 'mkdirSync').callsFake(() => {
         return true;
@@ -35,50 +35,54 @@ test('WriteFile', () => {
     });
 });
 
-test('WriteDirectories', (done) => {
+test('ReplaceString', () => {
+    expect(core.ReplaceString(dummy.templateHTML, '<name>', 'testFunction')).toBe(dummy.templateHTML);
+});
 
-    const stubExist = sinon.stub(core, 'fsExistsSync').callsFake(() => {
-        return true;
+test('fsExistsSync', () => {
+    const stub = sinon.stub(fs, 'accessSync').callsFake(() => {
+       return true;
     });
 
-    const stubmkdir = sinon.stub(fs, 'mkdirSync').callsFake(() => {
-        throw Error('ERROR FATAL CREATING DIR. YOU NEED TO CRY');
-    });
-
-    const stubWrite = sinon.stub(core, 'WriteDirectory').callsFake(() => {
-        throw Error('ERROR FATAL CREATING SUB DIR. YOU NEED TO CRY');
-    });
-
-    const promise = core.WriteDirectories('test', 'front_modules');
+    const promise = core.fsExistsSync('test');
 
     expect.assertions(1);
     return promise.then(data => {
         expect(data).toBe(true);
-        done();
-        stubmkdir.restore();
-        stubExist.restore();
-        stubWrite.restore();
+        stub.restore();
+    })
+});
+
+test('ReadFile', (done) => {
+    const stub = sinon.stub(fs, 'readFileSync').callsFake(() => {
+        return dummy.templateHTML;
     });
 
-});
-*/
+    const promise = core.ReadFile('templateHTML', 'testFile');
 
+    expect.assertions(1);
+
+    return promise.then(data => {
+        expect(data).toEqual(dummy.templateHTML);
+        done();
+        stub.restore();
+    });
+});
 
 test('ReadAllFiles', () => {
-
     const stub = sinon.stub(core, 'ReadFile').callsFake(() => {
-
         stub.withArgs('templateHTML', name).returns(templateHTML);
         stub.withArgs('templateCSS', name).returns(templateCSS);
         stub.withArgs('templateJS', name).returns(templateJS);
         stub.withArgs('templateTEST', name).returns(templateTEST);
         stub.withArgs('templateSINON', name).returns(templateSINON);
-
     });
 
     expect(core.ReadAllFiles(name)).toEqual([templateHTML, templateCSS, templateJS,templateTEST ,templateSINON]);
-
 });
+
+
+
 
 
 test('CreateDirectory' ,() => {
