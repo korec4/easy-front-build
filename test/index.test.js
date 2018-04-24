@@ -35,7 +35,7 @@ test('WriteFile', () => {
     });
 });
 
-test('WriteDirectories', (done) => {
+/*test('WriteDirectories', (done) => {
 
     const stubExist = sinon.stub(core, 'fsExistsSync').callsFake(() => {
         return true;
@@ -60,23 +60,21 @@ test('WriteDirectories', (done) => {
         stubWrite.restore();
     });
 
-});
-
-/*
-    test('ReadFile', (done) => {
-        const stub = sinon.stub(fs, 'readFileSync').callsFake(() => {
-    });
-
-    const promise = core.ReadFile('templateHTML', 'testFile');
-
-    expect.assertions(1);
-
-    return promise.then(data => {
-        expect(data).toBe(dummy.templateHTML);
-        done();
-        stub.restore();
-    })
-
-
 });*/
 
+
+test('ReadAllFiles', () => {
+
+    const stub = sinon.stub(core, 'ReadFile').callsFake(() => {
+
+        stub.withArgs('templateHTML', name).returns(templateHTML);
+        stub.withArgs('templateCSS', name).returns(templateCSS);
+        stub.withArgs('templateJS', name).returns(templateJS);
+        stub.withArgs('templateTEST', name).returns(templateTEST);
+        stub.withArgs('templateSINON', name).returns(templateSINON);
+
+    });
+
+    expect(core.ReadAllFiles(name)).toEqual([templateHTML, templateCSS, templateJS,templateTEST ,templateSINON]);
+
+});
