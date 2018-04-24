@@ -78,3 +78,12 @@ test('ReadAllFiles', () => {
     expect(core.ReadAllFiles(name)).toEqual([templateHTML, templateCSS, templateJS,templateTEST ,templateSINON]);
 
 });
+
+test('PromiseWriteFile', (done) => {
+
+    const spy = sinon.spy(Promise, 'resolve');
+    const promiseTemplate = new Promise((resolve, reject) => { });
+    core.PromiseWriteFile([promiseTemplate]);
+    done();
+    expect(spy.calledOnce).toBe(true);
+});
