@@ -21,6 +21,7 @@ test('writeDirectory', (done) => {
 });
 
 test('WriteFile', () => {
+
     const stub = sinon.stub(fs, 'writeFileSync').callsFake(() => {
        return true;
     });
@@ -87,3 +88,35 @@ test('ReadAllFiles', () => {
 });
 
 
+
+
+
+test('CreateDirectory' ,() => {
+
+    const stubReadAllFiles = sinon.stub(core, 'ReadAllFiles').callsFake(() => {
+        return [templateHTML, templateCSS, templateJS, templateTEST, templateSINON];
+
+    });
+
+    const stubWriteDirectories = sinon.stub(core, 'WriteDirectories').callsFake((done) => {
+        return promise.then(data => {
+            expect(data).toBe(true);
+            done();
+
+        });
+    });
+
+    const stubCreateFiles = sinon.stub(core, 'CreateFiles').callsFake((done) => {
+
+        return promise.then(data => {
+            expect(data).toBe(true);
+        });
+            done();
+        stubCreateFiles.restore();
+        stubReadAllFiles.restore();
+        stubWriteDirectories.restore();
+    });
+
+    expect(core.CreateDirectory('argv')).toBe(true);
+
+});
