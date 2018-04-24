@@ -4,7 +4,7 @@ const fs = require('fs');
 const sinon = require('sinon');
 const dummy = require('./sinonObjects/writeDirectory.dummy');
 
-
+/*
 test('writeDirectory', (done) => {
     const stub = sinon.stub(fs, 'mkdirSync').callsFake(() => {
         return true;
@@ -35,7 +35,7 @@ test('WriteFile', () => {
     });
 });
 
-/*test('WriteDirectories', (done) => {
+test('WriteDirectories', (done) => {
 
     const stubExist = sinon.stub(core, 'fsExistsSync').callsFake(() => {
         return true;
@@ -60,7 +60,8 @@ test('WriteFile', () => {
         stubWrite.restore();
     });
 
-});*/
+});
+*/
 
 
 test('ReadAllFiles', () => {
@@ -76,5 +77,36 @@ test('ReadAllFiles', () => {
     });
 
     expect(core.ReadAllFiles(name)).toEqual([templateHTML, templateCSS, templateJS,templateTEST ,templateSINON]);
+
+});
+
+
+test('CreateDirectory' ,() => {
+
+    const stubReadAllFiles = sinon.stub(core, 'ReadAllFiles').callsFake(() => {
+        return [templateHTML, templateCSS, templateJS, templateTEST, templateSINON];
+
+    });
+
+    const stubWriteDirectories = sinon.stub(core, 'WriteDirectories').callsFake((done) => {
+        return promise.then(data => {
+            expect(data).toBe(true);
+            done();
+
+        });
+    });
+
+    const stubCreateFiles = sinon.stub(core, 'CreateFiles').callsFake((done) => {
+
+        return promise.then(data => {
+            expect(data).toBe(true);
+        });
+            done();
+        stubCreateFiles.restore();
+        stubReadAllFiles.restore();
+        stubWriteDirectories.restore();
+    });
+
+    expect(core.CreateDirectory('argv')).toBe(true);
 
 });
