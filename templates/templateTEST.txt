@@ -1,21 +1,10 @@
 'use strict';
-const sinon = require('sinon');
-const dymmy = {};
 
-const mock = sinon.mock(object);
-//@TODO actions here!
+const core = require('../lib/<name>.js');
+const helper = require('./sinonObjects/<name>.sinon.js');
 
-mock.verify();
+test('case test', () => {
+    
+	// @TODO case test here !
 
-mock.restore();
-
-const spy = sinon.spy(object, 'function<name>');
-//@TOD functions watcher here!
-
-spy.restore();
-const stub = sinon.stub(object, 'function<name>');.callsFake() => {
-    //@TODO the overwrite behavior
 });
-
-// @TODO assertions or expects here!
-stub.restore();
