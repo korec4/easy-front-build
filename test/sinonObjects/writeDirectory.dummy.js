@@ -14,7 +14,8 @@ const templateHTML = `
         <h1></h1>
         <script type="text/javascript" src="${name}.js"></script>
     </body>
-</html>`;
+</html>`
+
 const templateCSS = `${name}{\n}`;
 const templateJS = `(function ${name} () {\n\t}();`;
 
